@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>ようこそ、ながのCAKEへ！</h2>
+
+  <h3 class="mb-4">新着商品</h3>
+  <div class="card-deck mb-3">
+    <% @items.each do |item| %>
+    <div class="card">
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item.image, class: "card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <p class="card-title"><%= item.name %></p>
+        <p class="card-text">
+          ￥<%= item.price %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="text-right mb-5">
+    <%= link_to '他の商品を見る＞', items_path %>
+  </div>
+</div>

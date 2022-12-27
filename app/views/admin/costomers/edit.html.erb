@@ -1,0 +1,70 @@
+<div class="container">
+  <h4 class="ml-3"><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h4>
+  
+  <%= form_with model: @customer, url: admin_customer_path do |f| %>
+    <div class="row mt-5">
+      <%= f.label :first_name, "氏名", class: "col-lg-2" %>
+      <div class="col-lg-3 form-group">
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+      <div class="col-lg-3 form-grup">
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= f.label :first_name_kana, "フリガナ", class: "col-lg-2" %>
+      <div class="col-lg-3 form-group">
+        <%= f.text_field :first_name_kana, class: "form-control" %>
+      </div>
+      <div class="col-lg-3 form-group" >
+        <%= f.text_field :last_name_kana, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :postal_code, "郵便番号", class: "col-lg-2" %>
+      <div class="col-lg-3">
+        <%= f.text_field :postal_code, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :address, "住所", class: "col-lg-2"%>
+      <div class="col-lg-6">
+        <%= f.text_field :address, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :telephone_number, "電話番号", class: "col-lg-2" %>
+      <div class="col-lg-3">
+        <%= f.text_field :telephone_number, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :email , "メールアドレス", class: "col-lg-2" %>
+      <div class="col-lg-3">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :is_deleted , "会員ステータス", class: "col-lg-2" %>
+      <div class="form-check ml-3">
+        <%= f.radio_button :is_deleted, false, class: "form-check-input" %>
+        <%= f.label :is_deleted_false, "有効", class: "form-check-label" %>
+      </div>
+      <div class="form-check ml-3">
+        <%= f.radio_button :is_deleted, true, class: "form-check-input" %>
+        <%= f.label :is_deleted_true, "退会", class: "form-check-label"%>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "変更を保存", class: "btn btn-success offset-2 mb-5 px-4" %>
+    </div>
+  <% end %>
+  </row>
+</div>
